@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+/tmp/
+
+# Database
+*.db
+*.sqlite
+
+# macOS
+.DS_Store
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Data files (sample regulatory text will be committed)
+# Add large data files here if needed
+
+# Backend logs
+backend/*.log
+backend/logs/
+
+# Temporary files
+*.tmp
+*.bak
+*~
