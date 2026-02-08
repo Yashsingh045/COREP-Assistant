@@ -1,0 +1,74 @@
+{
+  "documents": [
+    {
+      "source": "PRA_Rulebook",
+      "template": "C_01_00",
+      "section": "CRR Article 26",
+      "paragraph_id": "CRR_26_1",
+      "content": "Common Equity Tier 1 items shall comprise: (a) capital instruments, provided the conditions laid down in Article 28 or, where applicable, Article 29 are met; (b) share premium accounts related to the instruments referred to in point (a); (c) retained earnings; (d) accumulated other comprehensive income; (e) other reserves; (f) funds for general banking risk."
+    },
+    {
+      "source": "PRA_Rulebook",
+      "template": "C_01_00",
+      "section": "CRR Article 28",
+      "paragraph_id": "CRR_28_1",
+      "content": "Capital instruments shall qualify as Common Equity Tier 1 instruments only if all the following conditions are met: (a) the instruments are issued directly by the institution with the prior approval of the owners of the institution or, where permitted under applicable national law, the management body of the institution; (b) the instruments are paid up and their purchase is not funded directly or indirectly by the institution."
+    },
+    {
+      "source": "PRA_Rulebook",
+      "template": "C_01_00",
+      "section": "CRR Article 51",
+      "paragraph_id": "CRR_51_1",
+      "content": "Additional Tier 1 items shall comprise: (a) capital instruments, provided the conditions laid down in Article 52 or, where applicable, Article 53 are met; (b) share premium accounts related to the instruments referred to in point (a). Institutions shall not include in Additional Tier 1 items the items referred to in Article 26(1), points (c), (d), (e) and (f)."
+    },
+    {
+      "source": "PRA_Rulebook",
+      "template": "C_01_00",
+      "section": "CRR Article 62",
+      "paragraph_id": "CRR_62_1",
+      "content": "Tier 2 items shall comprise: (a) capital instruments and subordinated loans, provided the conditions laid down in Article 63 or, where applicable, Article 64 are met; (b) share premium accounts related to the instruments referred to in point (a); (c) the items referred to in Article 484 to Article 487. Where the instruments referred to in point (a) were issued by a mutually owned institution, those instruments may include variable capital instruments provided they meet the conditions laid down in Article 484(4)."
+    },
+    {
+      "source": "PRA_Rulebook",
+      "template": "C_01_00",
+      "section": "CRR Article 4",
+      "paragraph_id": "CRR_4_118",
+      "content": "Own funds means the sum of the Tier 1 capital and the Tier 2 capital. Tier 1 capital means the sum of Common Equity Tier 1 capital and Additional Tier 1 capital."
+    },
+    {
+      "source": "EBA_COREP",
+      "template": "C_01_00",
+      "section": "COREP Annex II",
+      "paragraph_id": "COREP_C0100_010",
+      "content": "Row 010: Common Equity Tier 1 (CET1) capital. This row shall include all items that qualify as Common Equity Tier 1 instruments according to Article 26 to Article 31 of Regulation (EU) No 575/2013. The amount shall be reported after application of all regulatory filters and deductions required under Articles 32 to 36."
+    },
+    {
+      "source": "EBA_COREP",
+      "template": "C_01_00",
+      "section": "COREP Annex II",
+      "paragraph_id": "COREP_C0100_020",
+      "content": "Row 020: Additional Tier 1 (AT1) capital. This row shall include capital instruments and their associated share premium accounts that meet the criteria specified in Article 52 of the CRR. Institutions shall report AT1 capital after application of relevant deductions."
+    },
+    {
+      "source": "EBA_COREP",
+      "template": "C_01_00",
+      "section": "COREP Annex II",
+      "paragraph_id": "COREP_C0100_030",
+      "content": "Row 030: Tier 1 capital (T1 = CET1 + AT1). This is the sum of Common Equity Tier 1 capital and Additional Tier 1 capital as defined in Article 25 of Regulation (EU) No 575/2013."
+    },
+    {
+      "source": "EBA_COREP",
+      "template": "C_01_00",
+      "section": "COREP Annex II",
+      "paragraph_id": "COREP_C0100_040",
+      "content": "Row 040: Tier 2 (T2) capital. This row shall include capital instruments and subordinated loans that meet the criteria specified in Article 63 of the CRR, plus the eligible amount of provisions as specified in Article 62(c) and (d)."
+    },
+    {
+      "source": "EBA_COREP",
+      "template": "C_01_00",
+      "section": "COREP Annex II",
+      "paragraph_id": "COREP_C0100_050",
+      "content": "Row 050: Total own funds (T1 + T2). This represents the total regulatory capital available to the institution, calculated as the sum of Tier 1 capital and Tier 2 capital. This is the key metric for assessing capital adequacy under the Capital Requirements Regulation."
+    }
+  ]
+}

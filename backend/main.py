@@ -51,6 +51,11 @@ async def health_check():
     }
 
 
+# Register API routers
+from api.retrieve import router as retrieve_router
+app.include_router(retrieve_router)
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
