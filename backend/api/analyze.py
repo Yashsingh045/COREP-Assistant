@@ -71,7 +71,18 @@ async def analyze_scenario(
             regulatory_context=regulatory_context
         )
         
+        # Step 4: Run validation engine
+        from validation.engine import validate_corep_output
+        
+        # Convert Pydantic model to dict for validation
+        output_dict = corep_output.model_dump()
+        validated_output = validate_corep_output(output_dict)
+        
+        # Convert back to Pydantic model
+        corep_output = COREPOutput(**validated_output)
+        
         logger.info(f"Successfully generated COREP output with {len(corep_output.fields)} fields")
+        logger.info(f"Validation warnings: {len(corep_output.validation_warnings)}")
         return corep_output
     
     except Exception as e:
