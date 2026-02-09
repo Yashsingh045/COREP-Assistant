@@ -62,7 +62,46 @@ python main.py
 
 Backend runs at `http://localhost:8000`
 
-## 📖 Usage
+## � Detailed Usage Flow
+
+Follow these steps to experience the full prototype workflow:
+
+### Step 1: Input Scenario via CLI
+Open a new terminal and ask a regulatory question about a capital scenario:
+```bash
+source backend/venv/bin/activate
+python cli/query.py \
+  --question "What is the Common Equity Tier 1 capital?" \
+  --scenario "The bank has £500m in ordinary shares and £200m in retained earnings."
+```
+
+### Step 2: Review Structured JSON Output
+The CLI will display a JSON response containing:
+- **Populated Fields**: Row 010 populated with £700m.
+- **Justification**: Explanation of why the shares and earnings were combined per CRR Article 26.
+- **Validation**: Signals if the math is correct or if fields are missing.
+
+### Step 3: Check Audit Trails
+Every query is logged for compliance. Browse the recent logs:
+```bash
+python cli/view_logs.py --limit 5
+```
+
+### Step 4: Visualize as HTML Template
+To see what a human analyst would see in a COREP form:
+```bash
+cd backend
+python test_render.py
+```
+Open the generated file `file:///tmp/corep_c01_sample.html` in your browser to see the color-coded table and hover tooltips.
+
+### Step 5: Run Batch Test Scenarios
+To see how the engine handles complex or incomplete data:
+```bash
+bash tests/test_scenarios.sh
+```
+
+## �📖 Usage
 
 ### CLI Query
 
