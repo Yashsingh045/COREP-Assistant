@@ -48,6 +48,8 @@ async def analyze_scenario(
         logger.info(f"Analyzing scenario for template {request.template}")
         logger.info(f"Question: {request.question}")
         
+        start_time = datetime.now()
+        
         # Step 1: Retrieve relevant regulatory text
         # Combine question and scenario for better retrieval
         query = f"{request.question} {request.scenario}"
@@ -81,8 +83,28 @@ async def analyze_scenario(
         # Convert back to Pydantic model
         corep_output = COREPOutput(**validated_output)
         
+        # Step 5: Audit logging
+        from audit.logger import audit_logger
+        from datetime import datetime
+        
+        execution_time = (datetime.now() - start_time).total_seconds()
+        
+        audit_logger.log_query(
+            question=request.question,
+            scenario=request.scenario,
+            template=request.template,
+            corep_output=validated_output,
+            retrieved_paragraphs=retrieved_paragraphs,
+            metadata={
+                "execution_time_seconds": execution_time,
+                "fields_count": len(corep_output.fields),
+                "validation_warnings_count": len(corep_output.validation_warnings)
+            }
+        )
+        
         logger.info(f"Successfully generated COREP output with {len(corep_output.fields)} fields")
         logger.info(f"Validation warnings: {len(corep_output.validation_warnings)}")
+        logger.info(f"Execution time: {execution_time:.2f}s")
         return corep_output
     
     except Exception as e:
