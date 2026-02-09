@@ -7,12 +7,13 @@ import argparse
 import json
 import httpx
 import sys
+import os
 
 
 def query_corep_assistant(question: str, scenario: str, template: str = "C_01_00"):
     """Send query to COREP Assistant backend."""
     
-    base_url = "http://localhost:8000"
+    base_url = os.getenv("COREP_BACKEND_URL", "http://localhost:8000")
     
     # Check backend health
     try:
