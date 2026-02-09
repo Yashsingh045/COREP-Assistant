@@ -4,13 +4,14 @@ Uses pydantic-settings to load environment variables.
 """
 from pydantic_settings import BaseSettings
 from pydantic import Field
+from typing import Optional
 
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
     
     # OpenAI Configuration
-    openai_api_key: str = Field(..., env="OPENAI_API_KEY")
+    openai_api_key: Optional[str] = Field(default=None, env="OPENAI_API_KEY")
     openai_model: str = Field(default="gpt-4o-mini", env="OPENAI_MODEL")
     openai_embedding_model: str = Field(
         default="text-embedding-3-small", 
@@ -18,7 +19,7 @@ class Settings(BaseSettings):
     )
     
     # Database Configuration
-    database_url: str = Field(..., env="DATABASE_URL")
+    database_url: Optional[str] = Field(default=None, env="DATABASE_URL")
     
     # Application Settings
     log_level: str = Field(default="INFO", env="LOG_LEVEL")
