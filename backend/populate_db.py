@@ -8,6 +8,7 @@ from pathlib import Path
 
 # Add backend to path
 sys.path.insert(0, str(Path(__file__).parent))
+import os
 
 from db.schema import SessionLocal, RegulatoryDocument
 from db.loader import get_c01_documents
@@ -29,6 +30,12 @@ def populate_database():
         existing_count = db.query(RegulatoryDocument).count()
         if existing_count > 0:
             logger.warning(f"Database already contains {existing_count} documents.")
+            
+            # Non-interactive check for CI/CD
+            if not sys.stdin.isatty() or os.getenv("SKIP_AUTH") == "true":
+                logger.info("Non-interactive mode: Skipping data reload since documents already exist.")
+                return
+                
             response = input("Clear existing data and reload? (y/n): ")
             if response.lower() != 'y':
                 logger.info("Skipping data load.")

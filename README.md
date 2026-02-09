@@ -20,7 +20,28 @@ Natural Language → Retrieval → LLM → Validation → HTML + Audit
      Query          (pgvector)   (GPT-4o)  (Rules)    (Jinja2)
 ```
 
-## 🚀 Quick Start
+## 🌍 Using the Deployed Prototype (No Setup Required)
+
+If you just want to test the assistant without setting up anything locally, use these links:
+
+- **Interactive API Docs**: [https://corep-assistant.onrender.com/docs](https://corep-assistant.onrender.com/docs)
+  - *Click `/api/analyze` -> "Try it out" to send a query.*
+- **System Health**: [https://corep-assistant.onrender.com/health](https://corep-assistant.onrender.com/health)
+
+### Quick Test via cURL
+```bash
+curl -X POST https://corep-assistant.onrender.com/api/analyze \
+  -H "Content-Type: application/json" \
+  -d '{
+    "question": "What is the CET1 capital?",
+    "scenario": "Bank has £500m in ordinary shares.",
+    "template": "C_01_00"
+  }'
+```
+
+---
+
+## 🚀 Quick Start Locally
 
 ### Prerequisites
 
