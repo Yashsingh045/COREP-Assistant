@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel, Field
 import logging
+from datetime import datetime
 
 from db.schema import get_db
 from retrieval.search import hybrid_search
@@ -85,7 +86,6 @@ async def analyze_scenario(
         
         # Step 5: Audit logging
         from audit.logger import audit_logger
-        from datetime import datetime
         
         execution_time = (datetime.now() - start_time).total_seconds()
         
