@@ -53,7 +53,10 @@ async def health_check():
 
 # Register API routers
 from api.retrieve import router as retrieve_router
+from api.analyze import router as analyze_router
+
 app.include_router(retrieve_router)
+app.include_router(analyze_router)
 
 
 if __name__ == "__main__":

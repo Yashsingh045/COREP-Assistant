@@ -27,19 +27,35 @@ def query_corep_assistant(question: str, scenario: str, template: str = "C_01_00
         print(f"   Make sure the backend is running: cd backend && python main.py")
         sys.exit(1)
     
-    # TODO: In future features, this will call /api/analyze
+    # Call /api/analyze endpoint
     print(f"\n📋 Query Details:")
     print(f"   Template: {template}")
     print(f"   Question: {question}")
     print(f"   Scenario: {scenario}")
-    print(f"\n⚠️  Full analysis functionality will be implemented in Feature 3")
+    print(f"\n🔍 Analyzing scenario...")
     
-    return {
-        "template": template,
-        "question": question,
-        "scenario": scenario,
-        "status": "pending_implementation"
-    }
+    try:
+        response = httpx.post(
+            f"{base_url}/api/analyze",
+            json={
+                "question": question,
+                "scenario": scenario,
+                "template": template,
+                "top_k": 5
+            },
+            timeout=30.0
+        )
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"\n❌ Error from backend: {response.status_code}")
+            print(f"   {response.text}")
+            return None
+    
+    except httpx.RequestError as e:
+        print(f"\n❌ Failed to call analyze endpoint: {e}")
+        return None
 
 
 def main():
@@ -77,9 +93,18 @@ def main():
         template=args.template
     )
     
-    print(f"\n📄 Result:")
-    print(json.dumps(result, indent=2))
+    if result:
+        print(f"\n✅ Analysis Complete!\n")
+        print("📄 Result:")
+        print(json.dumps(result, indent=2))
+        print(f"\n📊 Summary:")
+        print(f"   Fields populated: {len(result.get('fields', []))}")
+        print(f"   Validation warnings: {len(result.get('validation_warnings', []))}")
+        return 0
+    else:
+        print(f"\n❌ Analysis failed")
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
